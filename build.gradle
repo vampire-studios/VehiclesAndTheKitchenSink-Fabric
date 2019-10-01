@@ -35,6 +35,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modApi("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}") {
 		force = true
+		exclude(group: "net.fabricmc.fabric-api", module: "fabric-renderer-indigo")
 	}
 
 	modApi "me.sargunvohra.mcmods:auto-config:${project.auto_config_version}"
@@ -45,12 +46,14 @@ dependencies {
 	modApi "vampirelib:VampireLib:${project.vampirelib_version}"
 
 	// For dev env testing
-	modImplementation "com.jamieswhiteshirt:developer-mode:${project.developer_mode_version}"
 	modImplementation("me.shedaniel:RoughlyEnoughItems:${project.rei_version}") {
-		exclude(module: "ModMenu")
+		exclude(group: "io.github.prospector.modmenu", module: "ModMenu")
+		exclude(group: "net.fabricmc.fabric-api", module: "fabric-renderer-indigo")
 	}
-	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
-	modImplementation "leaf-decay:leaf:decay:${project.leaf_decay_version}"
+	modImplementation ("io.github.prospector:modmenu:${project.modmenu_version}") {
+		exclude(group: "net.fabricmc.fabric-api", module: "fabric-renderer-indigo")
+	}
+	//modImplementation "leaf-decay:leaf:decay:${project.leaf_decay_version}"
 	modImplementation "worldedit:worldedit-fabric-mc1.14.4:${project.we_version}"
 	modImplementation "artificemc:artifice:${project.artifice_version}"
 
