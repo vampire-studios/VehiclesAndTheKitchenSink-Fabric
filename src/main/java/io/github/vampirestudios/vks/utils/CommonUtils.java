@@ -11,40 +11,32 @@ import net.minecraft.text.TranslatableText;
 /**
  * Author: MrCrayfish
  */
-public class CommonUtils
-{
-    public static CompoundTag getItemTagCompound(ItemStack stack)
-    {
-        if(!stack.hasTag())
-        {
+public class CommonUtils {
+
+    public static CompoundTag getItemTagCompound(ItemStack stack) {
+        if(!stack.hasTag()) {
             stack.setTag(new CompoundTag());
         }
         return stack.getTag();
     }
 
-    public static void writeItemStackToTag(CompoundTag parent, String key, ItemStack stack)
-    {
-        if(!stack.isEmpty())
-        {
+    public static void writeItemStackToTag(CompoundTag parent, String key, ItemStack stack) {
+        if(!stack.isEmpty()) {
             CompoundTag tag = new CompoundTag();
             stack.setTag(tag);
             parent.put(key, tag);
         }
     }
 
-    public static ItemStack readItemStackFromTag(CompoundTag parent, String key)
-    {
-        if(parent.containsKey(key, Constants.NBT.TAG_COMPOUND))
-        {
+    public static ItemStack readItemStackFromTag(CompoundTag parent, String key) {
+        if(parent.contains(key, Constants.NBT.TAG_COMPOUND)) {
             return ItemStack.fromTag(parent.getCompound(key));
         }
         return ItemStack.EMPTY;
     }
 
-    public static void sendInfoMessage(PlayerEntity player, String message)
-    {
-        if(player instanceof ServerPlayerEntity)
-        {
+    public static void sendInfoMessage(PlayerEntity player, String message) {
+        if(player instanceof ServerPlayerEntity) {
             ((ServerPlayerEntity) player).networkHandler.sendPacket(new ChatMessageS2CPacket(new TranslatableText(message), MessageType.GAME_INFO));
         }
     }

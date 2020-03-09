@@ -53,8 +53,8 @@ public class Constants {
     }
 
     /**
-     * The world event IDS, used when calling {@link net.minecraft.world.World#playEvent(net.minecraft.entity.player.EntityPlayer, int, net.minecraft.util.math.BlockPos, int)}. <br>
-     * Can be found from {@link net.minecraft.client.renderer.WorldRenderer#playEvent}<br>
+     * The world event IDS, used when calling {@link net.minecraft.world.World#pla(net.minecraft.entity.player.EntityPlayer, int, net.minecraft.util.math.BlockPos, int)}. <br>
+     * Can be found from {@link net.minecraft.client.render.WorldRenderer#playGlobalEvent(int, BlockPos, int)}<br>
      * Some of the events use the {@code data} parameter. If this is the case, an explanation of what {@code data} does is also provided
      */
     public static class WorldEvents {

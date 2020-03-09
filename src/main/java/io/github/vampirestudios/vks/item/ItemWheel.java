@@ -16,7 +16,7 @@ public class ItemWheel extends ItemPart implements IDyeable {
     @Override
     public boolean hasColor(ItemStack stack) {
         CompoundTag tagCompound = CommonUtils.getItemTagCompound(stack);
-        return tagCompound.containsKey("color", Constants.NBT.TAG_INT);
+        return tagCompound.contains("color", Constants.NBT.TAG_INT);
     }
 
     @Override

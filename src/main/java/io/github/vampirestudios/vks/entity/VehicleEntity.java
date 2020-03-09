@@ -71,27 +71,27 @@ public class VehicleEntity extends Entity {
 
     @Override
     protected void readCustomDataFromTag(CompoundTag compoundTag) {
-        if(compoundTag.containsKey("color", Constants.NBT.TAG_INT_ARRAY)) {
+        if(compoundTag.contains("color", Constants.NBT.TAG_INT_ARRAY)) {
             int[] c = compoundTag.getIntArray("color");
             if(c.length == 3) {
                 int color = ((c[0] & 0xFF) << 16) | ((c[1] & 0xFF) << 8) | ((c[2] & 0xFF));
                 this.setColor(color);
             }
         }
-        else if(compoundTag.containsKey("color", Constants.NBT.TAG_INT)) {
+        else if(compoundTag.contains("color", Constants.NBT.TAG_INT)) {
             int index = compoundTag.getInt("color");
             if(index >= 0 && index < DYE_TO_COLOR.length) {
                 this.setColor(DYE_TO_COLOR[index]);
             }
             compoundTag.remove("color");
         }
-        if(compoundTag.containsKey("maxHealth", Constants.NBT.TAG_FLOAT)){
+        if(compoundTag.contains("maxHealth", Constants.NBT.TAG_FLOAT)){
             this.setMaxHealth(compoundTag.getFloat("maxHealth"));
         }
-        if(compoundTag.containsKey("health", Constants.NBT.TAG_FLOAT)) {
+        if(compoundTag.contains("health", Constants.NBT.TAG_FLOAT)) {
             this.setHealth(compoundTag.getFloat("health"));
         }
-        if(compoundTag.hasUuid("trailer")) {
+        if(compoundTag.contains("trailer")) {
             this.trailerId = compoundTag.getUuid("trailer");
         }
     }
