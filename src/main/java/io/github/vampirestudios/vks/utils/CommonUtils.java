@@ -13,24 +13,24 @@ import net.minecraft.text.TranslatableText;
  */
 public class CommonUtils {
 
-    public static CompoundTag getItemTagCompound(ItemStack stack) {
-        if(!stack.hasTag()) {
+    public static CompoundTag getOrCreateStackTag(ItemStack stack) {
+        if(stack.getTag() == null) {
             stack.setTag(new CompoundTag());
         }
         return stack.getTag();
     }
 
-    public static void writeItemStackToTag(CompoundTag parent, String key, ItemStack stack) {
+    public static void writeItemStackToTag(CompoundTag compound, String key, ItemStack stack) {
         if(!stack.isEmpty()) {
             CompoundTag tag = new CompoundTag();
-            stack.setTag(tag);
-            parent.put(key, tag);
+            stack.toTag(tag);
+            compound.put(key, tag);
         }
     }
 
-    public static ItemStack readItemStackFromTag(CompoundTag parent, String key) {
-        if(parent.contains(key, Constants.NBT.TAG_COMPOUND)) {
-            return ItemStack.fromTag(parent.getCompound(key));
+    public static ItemStack readItemStackFromTag(CompoundTag compound, String key) {
+        if(compound.contains(key, Constants.NBT.TAG_COMPOUND)) {
+            return ItemStack.fromTag(compound.getCompound(key));
         }
         return ItemStack.EMPTY;
     }
@@ -40,4 +40,9 @@ public class CommonUtils {
             ((ServerPlayerEntity) player).networkHandler.sendPacket(new ChatMessageS2CPacket(new TranslatableText(message), MessageType.GAME_INFO));
         }
     }
+
+    public static boolean isMouseWithin(int mouseX, int mouseY, int x, int y, int width, int height) {
+        return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
+    }
+
 }

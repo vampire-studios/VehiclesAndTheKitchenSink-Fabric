@@ -7,9 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 
-public class ItemWheel extends ItemPart implements IDyeable {
+public class WheelItem extends ItemPart implements IDyeable {
 
-    public ItemWheel() {
+    public WheelItem() {
         super(new Item.Settings().maxDamage(0).group(VehiclesAndTheKitchenSink.ITEM_GROUP));
     }
 
