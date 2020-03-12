@@ -1,0 +1,22 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:moped",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 36
+        },
+        {
+            "item": "minecraft:iron_bars",
+            "count": 2
+        },
+        {
+            "item": "minecraft:black_wool",
+            "count": 4
+        },
+        {
+            "item": "vks:panel",
+            "count": 6
+        }
+    ]
+}

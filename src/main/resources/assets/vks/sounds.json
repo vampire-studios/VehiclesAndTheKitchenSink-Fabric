@@ -1,0 +1,113 @@
+{
+    "horn_mono": {
+        "sounds": [ {"name": "vks:horn_mono"}]
+    },
+    "horn_stereo": {
+        "sounds": [ {"name": "vks:horn_stereo"}]
+    },
+    "atv_engine_mono": {
+        "sounds": [ {"name": "vks:atv_engine_mono"}]
+    },
+    "atv_engine_stereo": {
+        "sounds": [ {"name": "vks:atv_engine_stereo"}]
+    },
+    "go_kart_engine_mono": {
+        "sounds": [ {"name": "vks:go_kart_engine_mono"}]
+    },
+    "go_kart_engine_stereo": {
+        "sounds": [ {"name": "vks:go_kart_engine_stereo"}]
+    },
+    "electric_engine_mono": {
+        "sounds": [ {"name": "vks:electric_engine_mono"}]
+    },
+    "electric_engine_stereo": {
+        "sounds": [ {"name": "vks:electric_engine_stereo"}]
+    },
+    "bonk": {
+        "sounds": [ {"name": "vks:bonk"}]
+    },
+    "pick_up_vehicle": {
+        "sounds": [ {"name": "vks:pick_up_vehicle"}]
+    },
+    "speed_boat_engine_mono": {
+        "sounds": [ {"name": "vks:speed_boat_engine_mono"}]
+    },
+    "speed_boat_engine_stereo": {
+        "sounds": [ {"name": "vks:speed_boat_engine_stereo"}]
+    },
+    "spray_can_spray": {
+        "sounds": [ {"name": "vks:spray_can_spray"}]
+    },
+    "spray_can_shake": {
+        "sounds": [ {"name": "vks:spray_can_shake"}]
+    },
+    "moped_engine_mono": {
+        "sounds": [ {"name": "vks:moped_engine_mono"}]
+    },
+    "moped_engine_stereo": {
+        "sounds": [ {"name": "vks:moped_engine_stereo"}]
+    },
+    "sports_plane_engine_mono": {
+        "sounds": [ {"name": "vks:sports_plane_engine_mono"}]
+    },
+    "sports_plane_engine_stereo": {
+        "sounds": [ {"name": "vks:sports_plane_engine_stereo"}]
+    },
+    "boost_pad": {
+        "sounds": [ {"name": "vks:boost_pad"}]
+    },
+    "liquid_glug": {
+        "sounds": [ {"name": "vks:liquid_glug"}]
+    },
+    "fuel_port_open": {
+        "sounds": [ {"name": "vks:fuel_port_open"}]
+    },
+    "fuel_port_close": {
+        "sounds": [ {"name": "vks:fuel_port_close"}]
+    },
+    "fuel_port_2_open": {
+        "sounds": [ {"name": "vks:fuel_port_2_open"}]
+    },
+    "fuel_port_2_close": {
+        "sounds": [ {"name": "vks:fuel_port_2_close"}]
+    },
+    "vehicle_crate_panel_land": {
+        "sounds": [ {"name": "vks:vehicle_crate_panel_land"}]
+    },
+    "jack_up": {
+        "sounds": [ {"name": "vks:jack_up"}]
+    },
+    "jack_down": {
+        "sounds": [ {"name": "vks:jack_down"}]
+    },
+    "vehicle_impact": {
+        "sounds": [ {"name": "vks:vehicle_impact"}]
+    },
+    "vehicle_destroyed": {
+        "sounds": [ {"name": "vks:vehicle_destroyed"}]
+    },
+    "vehicle_thud": {
+        "sounds": [ {"name": "vks:vehicle_thud"}]
+    },
+    "air_wrench_gun": {
+        "sounds": [ {"name": "vks:air_wrench_gun"}]
+    },
+    "tractor_engine_mono": {
+        "sounds": [ {"name": "vks:tractor_engine_mono"}]
+    },
+    "tractor_engine_stereo": {
+        "sounds": [ {"name": "vks:tractor_engine_stereo"}]
+    },
+    "nozzle_pick_up": {
+        "sounds": [ {"name": "vks:nozzle_pick_up"}]
+    },
+    "nozzle_put_down": {
+        "sounds": [ {"name": "vks:nozzle_put_down"}]
+    },
+    "mini_bus_engine_mono": {
+        "sounds": [ {"name": "vks:mini_bus_engine_mono"}]
+    },
+    "mini_bus_engine_stereo": {
+        "sounds": [ {"name": "vks:mini_bus_engine_stereo"}]
+    }
+}

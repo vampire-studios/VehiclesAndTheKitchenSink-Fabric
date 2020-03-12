@@ -1,10 +1,10 @@
 package io.github.vampirestudios.vks.block;
 
 import com.google.common.base.Strings;
-import com.mrcrayfish.vehicle.init.ModBlocks;
-import com.mrcrayfish.vehicle.tileentity.VehicleCrateTileEntity;
+import io.github.vampirestudios.vks.block.entity.VehicleCrateTileEntity;
 import io.github.vampirestudios.vks.entity.EngineTier;
 import io.github.vampirestudios.vks.entity.WheelType;
+import io.github.vampirestudios.vks.init.ModBlocks;
 import io.github.vampirestudios.vks.init.ModItems;
 import io.github.vampirestudios.vks.utils.Bounds;
 import io.github.vampirestudios.vks.utils.Constants;
@@ -34,11 +34,9 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 

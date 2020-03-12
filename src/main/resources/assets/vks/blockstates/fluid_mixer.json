@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "vks:block/fluid_mixer",
+            "y": 0
+        },
+        "facing=east": {
+            "model": "vks:block/fluid_mixer",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "vks:block/fluid_mixer",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "vks:block/fluid_mixer",
+            "y": 270
+        }
+    }
+}

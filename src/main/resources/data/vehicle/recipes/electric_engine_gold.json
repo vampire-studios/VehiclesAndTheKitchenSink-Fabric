@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " U ",
+        "UEU",
+        " U "
+    ],
+    "key": {
+        "E": {
+            "item": "vks:iron_electric_engine"
+        },
+        "U": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "vks:gold_electric_engine"
+    }
+}

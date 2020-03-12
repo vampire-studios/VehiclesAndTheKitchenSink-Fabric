@@ -1,0 +1,22 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:sports_plane",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 180
+        },
+        {
+            "item": "minecraft:glass_pane",
+            "count": 16
+        },
+        {
+            "item": "minecraft:redstone",
+            "count": 18
+        },
+        {
+            "item": "vks:panel",
+            "count": 32
+        }
+    ]
+}

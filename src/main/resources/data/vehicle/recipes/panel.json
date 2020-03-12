@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "NNN",
+        "CCC",
+        "NNN"
+    ],
+    "key": {
+        "N": {
+            "item": "minecraft:iron_nugget"
+        },
+        "C": {
+            "item": "minecraft:white_concrete"
+        }
+    },
+    "result": {
+        "item": "vks:panel",
+        "count": 8
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "P  ",
+        "CP ",
+        "CCP"
+    ],
+    "key": {
+        "P": {
+            "item": "vks:boost_pad"
+        },
+        "C": {
+            "item": "minecraft:gray_concrete"
+        }
+    },
+    "result": {
+        "item": "vks:steep_boost_ramp",
+        "count": 3
+    }
+}

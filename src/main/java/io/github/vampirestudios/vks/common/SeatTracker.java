@@ -1,20 +1,14 @@
 package io.github.vampirestudios.vks.common;
 
 import com.google.common.collect.HashBiMap;
-import com.mrcrayfish.vehicle.entity.VehicleProperties;
-import com.mrcrayfish.vehicle.network.PacketHandler;
-import com.mrcrayfish.vehicle.network.message.MessageSyncPlayerSeat;
 import io.github.vampirestudios.vks.entity.VehicleEntity;
+import io.github.vampirestudios.vks.entity.VehicleProperties;
 import io.github.vampirestudios.vks.utils.Constants;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListNBT;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.fml.network.PacketDistributor;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -59,7 +53,7 @@ public class SeatTracker
         VehicleEntity vehicle = this.vehicleRef.get();
         if(vehicle != null && !vehicle.world.isClient)
         {
-            PacketHandler.instance.send(PacketDistributor.TRACKING_ENTITY.with(() -> vehicle), new MessageSyncPlayerSeat(vehicle.getEntityId(), index, uuid));
+//            PacketHandler.instance.send(PacketDistributor.TRACKING_ENTITY.with(() -> vehicle), new MessageSyncPlayerSeat(vehicle.getEntityId(), index, uuid));
         }
     }
 
@@ -128,7 +122,7 @@ public class SeatTracker
 
                 /* Get the real world distance to the seat and check if it's the closest */
                 Seat seat = seats.get(i);
-                Vec3d seatVec = seat.getPosition().add(0, properties.getAxleOffset() + properties.getWheelOffset(), 0).scale(properties.getBodyPosition().getScale()).mul(-1, 1, 1).scale(0.0625);
+                Vec3d seatVec = seat.getPosition().add(0, properties.getAxleOffset() + properties.getWheelOffset(), 0).multiply(properties.getBodyPosition().getScale()).multiply(-1, 1, 1).multiply(0.0625);
                 seatVec = seatVec.rotateY(-(vehicle.getModifiedRotationYaw()) * 0.017453292F);
                 seatVec = seatVec.add(vehicle.getPosVector());
                 double distance = player.squaredDistanceTo(seatVec.x, seatVec.y - player.getHeight() / 2F, seatVec.z);

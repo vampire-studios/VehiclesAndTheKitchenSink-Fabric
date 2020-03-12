@@ -1,0 +1,14 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:jet_ski",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 80
+        },
+        {
+            "item": "vks:panel",
+            "count": 10
+        }
+    ]
+}

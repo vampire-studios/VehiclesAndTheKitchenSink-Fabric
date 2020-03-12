@@ -1,0 +1,10 @@
+{
+    "type": "vks:fluid_extractor",
+    "ingredient": {
+        "item": "minecraft:blaze_rod"
+    },
+    "result": {
+        "fluid": "vks:blaze_juice",
+        "amount": 450
+    }
+}

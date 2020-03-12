@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing": {
+            "north": {},
+            "east":  {},
+            "south": {},
+            "west":  {}
+        }
+    }
+}

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import io.github.vampirestudios.vks.client.render.Wheel;
 import io.github.vampirestudios.vks.common.Seat;
 import io.github.vampirestudios.vks.common.entity.PartPosition;
+import io.github.vampirestudios.vks.init.ModEntities;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.Vec3d;
@@ -122,7 +123,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 13.5);
         properties.setRearAxelVec(0, -8.5);
         properties.addSeat(new Seat(new Vec3d(0, -2, -1), true));
-//        VehicleProperties.setProperties(ModEntities.GO_KART, properties);
+        VehicleProperties.setProperties(ModEntities.GO_KART, properties);
 
         /* Golf Cart */
         properties = new VehicleProperties();

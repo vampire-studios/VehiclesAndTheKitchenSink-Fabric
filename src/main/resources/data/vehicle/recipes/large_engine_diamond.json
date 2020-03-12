@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " U ",
+        "UEU",
+        " U "
+    ],
+    "key": {
+        "E": {
+            "item": "vks:gold_large_engine"
+        },
+        "U": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "vks:diamond_large_engine"
+    }
+}

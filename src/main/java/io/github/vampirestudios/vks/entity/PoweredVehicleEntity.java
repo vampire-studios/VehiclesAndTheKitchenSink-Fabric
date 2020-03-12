@@ -1,24 +1,12 @@
 package io.github.vampirestudios.vks.entity;
 
-import com.mrcrayfish.vehicle.Config;
-import com.mrcrayfish.vehicle.VehicleMod;
-import com.mrcrayfish.vehicle.client.ISpecialModel;
-import com.mrcrayfish.vehicle.client.SpecialModels;
-import com.mrcrayfish.vehicle.entity.vehicle.BumperCarEntity;
-import com.mrcrayfish.vehicle.inventory.container.EditVehicleContainer;
-import com.mrcrayfish.vehicle.item.EngineItem;
-import com.mrcrayfish.vehicle.item.JerryCanItem;
-import com.mrcrayfish.vehicle.network.message.*;
-import com.mrcrayfish.vehicle.tileentity.GasPumpTankTileEntity;
-import com.mrcrayfish.vehicle.tileentity.GasPumpTileEntity;
-import io.github.vampirestudios.vks.VehiclesAndTheKitchenSink;
 import io.github.vampirestudios.vks.client.render.Wheel;
-import io.github.vampirestudios.vks.common.CustomDataParameters;
 import io.github.vampirestudios.vks.common.ItemLookup;
 import io.github.vampirestudios.vks.common.Seat;
 import io.github.vampirestudios.vks.common.entity.PartPosition;
 import io.github.vampirestudios.vks.init.ModItems;
 import io.github.vampirestudios.vks.init.ModSounds;
+import io.github.vampirestudios.vks.item.EngineItem;
 import io.github.vampirestudios.vks.item.WheelItem;
 import io.github.vampirestudios.vks.utils.CommonUtils;
 import io.github.vampirestudios.vks.utils.Constants;
@@ -28,21 +16,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassBlock;
 import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.container.Container;
-import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.BasicInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.InventoryListener;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -50,28 +32,17 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.List;
 import java.util.UUID;
 
-*
- * Author: MrCrayfish
-
-
-public abstract class PoweredVehicleEntity extends VehicleEntity implements InventoryListener, NameableContainerProvider
+public abstract class PoweredVehicleEntity extends VehicleEntity/* implements InventoryListener, NameableContainerProvider*/
 {
     protected static final TrackedData<Float> CURRENT_SPEED = DataTracker.registerData(PoweredVehicleEntity.class, TrackedDataHandlerRegistry.FLOAT);
     protected static final TrackedData<Float> MAX_SPEED = DataTracker.registerData(PoweredVehicleEntity.class, TrackedDataHandlerRegistry.FLOAT);
@@ -140,7 +111,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
     public PoweredVehicleEntity(EntityType<?> entityType, World worldIn, double posX, double posY, double posZ)
     {
         this(entityType, worldIn);
-        this.setPosition(posX, posY, posZ);
+        this.setPos(posX, posY, posZ);
     }
 
     @Override
@@ -222,7 +193,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
     public void onClientInit()
     {
         super.onClientInit();
-        this.setFuelPortType(FuelPortType.DEFAULT);
+//        this.setFuelPortType(FuelPortType.DEFAULT);
     }
 
     /*protected void setFuelPortType(FuelPortType fuelPortType)
@@ -328,8 +299,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
     }
 
     @Override
-    public void tickRiding()
-    {
+    public void onUpdateVehicle() {
         this.prevCurrentSpeed = this.currentSpeed;
         this.prevTurnAngle = this.turnAngle;
         this.prevWheelAngle = this.wheelAngle;
@@ -446,10 +416,10 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
 
     public abstract EngineType getEngineType();
 
-    public FuelPortType getFuelPortType()
+    /*public FuelPortType getFuelPortType()
     {
         return FuelPortType.DEFAULT;
-    }
+    }*/
 
     protected void updateSpeed()
     {
@@ -561,11 +531,10 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
                     int z = MathHelper.floor(this.getZ() + wheelZ);
                     BlockPos pos = new BlockPos(x, y, z);
                     BlockState state = this.world.getBlockState(pos);
-                    /*if(state.getMaterial() != Material.AIR && state.getMaterial().canBreakByHand())
-                    {
-                        Vec3d dirVec = this.getRotationVec(this.pitch, this.getHeadYaw() + 180F);
+                    if(state.getMaterial() != Material.AIR && state.getMaterial().canBreakByHand()) {
+                        Vec3d dirVec = this.getOppositeRotationVector(this.pitch, this.getHeadYaw() + 180F);
                         this.world.addParticle(new BlockStateParticleEffect(ParticleTypes.BLOCK, state), this.getX() + wheelX, this.getY() + wheelY, this.getZ() + wheelZ, dirVec.x, dirVec.y, dirVec.z);
-                    }*/
+                    }
                 }
             }
         }
@@ -618,7 +587,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
     }
 
     @Override
-    protected void readCustomDataFromTag(CompoundTag compound) {
+    public void readCustomDataFromTag(CompoundTag compound) {
         super.readCustomDataFromTag(compound);
         if(compound.contains("Owner", Constants.NBT.TAG_COMPOUND))
         {
@@ -684,7 +653,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
     }
 
     @Override
-    protected void writeCustomDataToTag(CompoundTag compound) {
+    public void writeCustomDataToTag(CompoundTag compound) {
         super.writeCustomDataToTag(compound);
         if(this.owner != null) {
             compound.putUuid("Owner", this.owner);
@@ -739,7 +708,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
                     Seat seat = properties.getSeats().get(seatIndex);
                     Vec3d seatVec = seat.getPosition().add(0, properties.getAxleOffset() + properties.getWheelOffset(), 0).multiply(properties.getBodyPosition().getScale()).multiply(-1, 1, 1).multiply(0.0625).rotateY(-(this.getHeadYaw() + 180) * 0.017453292F);
                     //Vec3d seatVec = Vec3d.ZERO;
-                    passenger.setPosition(this.getX() - seatVec.x, this.getY() + seatVec.y + passenger.getHeightOffset(), this.getZ() - seatVec.z);
+                    passenger.setPos(this.getX() - seatVec.x, this.getY() + seatVec.y + passenger.getHeightOffset(), this.getZ() - seatVec.z);
                     /*if(VehiclesAndTheKitchenSink.canApplyVehicleYaw(passenger))
                     {
                         passenger.yaw -= this.deltaYaw;
@@ -1050,7 +1019,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
 
     public boolean isOwner(PlayerEntity player)
     {
-        return owner == null || player.getUniqueID().equals(owner);
+        return owner == null || player.getUuid().equals(owner);
     }
 
     public void setOwner(UUID owner)
@@ -1058,41 +1027,38 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
         this.owner = owner;
     }
 
-    public boolean hasWheels()
-    {
-        return this.dataManager.get(HAS_WHEELS);
+    public boolean hasWheels() {
+        return this.dataTracker.get(HAS_WHEELS);
     }
 
-    public void setWheels(boolean hasWheels)
-    {
-        this.dataManager.set(HAS_WHEELS, hasWheels);
+    public void setWheels(boolean hasWheels) {
+        this.dataTracker.set(HAS_WHEELS, hasWheels);
     }
 
     public void setWheelType(WheelType wheelType)
     {
-        this.dataManager.set(WHEEL_TYPE, wheelType.ordinal());
+        this.dataTracker.set(WHEEL_TYPE, wheelType.ordinal());
     }
 
     public WheelType getWheelType()
     {
-        return WheelType.values()[this.dataManager.get(WHEEL_TYPE)];
+        return WheelType.values()[this.dataTracker.get(WHEEL_TYPE)];
     }
 
     public void setWheelColor(int color)
     {
-        this.dataManager.set(WHEEL_COLOR, color);
+        this.dataTracker.set(WHEEL_COLOR, color);
     }
 
     public int getWheelColor()
     {
-        return this.dataManager.get(WHEEL_COLOR);
+        return this.dataTracker.get(WHEEL_COLOR);
     }
 
     @Override
-    public void notifyDataManagerChange(DataParameter<?> key)
-    {
-        super.notifyDataManagerChange(key);
-        if(world.isRemote)
+    public void onTrackedDataSet(TrackedData<?> key) {
+        super.onTrackedDataSet(key);
+        if(world.isClient)
         {
             if(COLOR.equals(key))
             {
@@ -1100,7 +1066,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
                 int colorInt = (Math.sqrt(color.getRed() * color.getRed() * 0.241
                         + color.getGreen() * color.getGreen() * 0.691
                         + color.getBlue() * color.getBlue() * 0.068) > 127 ? color.darker() : color.brighter()).getRGB();
-
+//                this.setColor(colorInt);
             }
         }
     }
@@ -1111,7 +1077,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
         super.addPassenger(passenger);
         if(passenger instanceof PlayerEntity && world.isClient)
         {
-            VehicleMod.PROXY.playVehicleSound((PlayerEntity) passenger, this);
+//            VehicleMod.PROXY.playVehicleSound((PlayerEntity) passenger, this);
         }
     }
 
@@ -1173,13 +1139,11 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
             this.vehicleInventory.setInvStack(1, wheel);
         }
 
-        this.vehicleInventory.addListener(this);
+//        this.vehicleInventory.addListener(this);
     }
 
-    private void updateSlots()
-    {
-        if (!this.world.isClient)
-        {
+    private void updateSlots() {
+        if (!this.world.isClient) {
             ItemStack engine = this.vehicleInventory.getInvStack(0);
             if(engine.getItem() instanceof EngineItem)
             {
@@ -1416,12 +1380,12 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
         return this.getName();
     }
 
-    @Nullable
+    /*@Nullable
     @Override
     public Container createMenu(int windowId, PlayerInventory playerInventory, PlayerEntity playerEntity)
     {
         return new EditVehicleContainer(windowId, this.getVehicleInventory(), this, playerEntity, playerInventory);
-    }
+    }*/
 
     public enum TurnDirection
     {
@@ -1454,7 +1418,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
         }
     }
 
-    public enum FuelPortType
+    /*public enum FuelPortType
     {
         DEFAULT(SpecialModels.FUEL_DOOR_CLOSED, SpecialModels.FUEL_DOOR_OPEN, ModSounds.FUEL_PORT_OPEN, 0.25F, 0.6F, ModSounds.FUEL_PORT_CLOSE, 0.12F, 0.6F),
         SMALL(SpecialModels.SMALL_FUEL_DOOR_CLOSED, SpecialModels.SMALL_FUEL_DOOR_OPEN, ModSounds.FUEL_PORT_2_OPEN, 0.4F, 0.6F, ModSounds.FUEL_PORT_2_CLOSE, 0.3F, 0.6F);
@@ -1501,5 +1465,5 @@ public abstract class PoweredVehicleEntity extends VehicleEntity implements Inve
         {
             VehicleMod.PROXY.playSound(this.closeSound, this.closeVolume, this.closePitch);
         }
-    }
+    }*/
 }

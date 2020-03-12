@@ -1,0 +1,22 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:tractor",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 128
+        },
+        {
+            "item": "minecraft:black_wool",
+            "count": 4
+        },
+        {
+            "item": "minecraft:redstone",
+            "count": 8
+        },
+        {
+            "item": "vks:panel",
+            "count": 16
+        }
+    ]
+}

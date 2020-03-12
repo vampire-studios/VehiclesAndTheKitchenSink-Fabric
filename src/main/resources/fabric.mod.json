@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "io.github.vampirestudios.vks.VehiclesAndTheKitchenSink"
+    ],
+    "client": [
+      "io.github.vampirestudios.vks.VehiclesAndTheKitchenSinkClient"
     ]
   },
   "mixins": [

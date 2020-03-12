@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " U ",
+        "UEU",
+        " U "
+    ],
+    "key": {
+        "E": {
+            "item": "vks:wood_electric_engine"
+        },
+        "U": {
+            "item": "minecraft:stone"
+        }
+    },
+    "result": {
+        "item": "vks:stone_electric_engine"
+    }
+}

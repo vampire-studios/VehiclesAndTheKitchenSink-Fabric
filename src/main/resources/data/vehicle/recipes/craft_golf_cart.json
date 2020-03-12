@@ -1,0 +1,26 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:golf_cart",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 128
+        },
+        {
+            "item": "minecraft:iron_bars",
+            "count": 4
+        },
+        {
+            "item": "minecraft:white_wool",
+            "count": 8
+        },
+        {
+            "item": "minecraft:redstone",
+            "count": 12
+        },
+        {
+            "item": "vks:panel",
+            "count": 16
+        }
+    ]
+}

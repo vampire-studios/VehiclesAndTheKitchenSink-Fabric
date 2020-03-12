@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " U ",
+        "UEU",
+        " U "
+    ],
+    "key": {
+        "E": {
+            "item": "vks:stone_small_engine"
+        },
+        "U": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "vks:iron_small_engine"
+    }
+}

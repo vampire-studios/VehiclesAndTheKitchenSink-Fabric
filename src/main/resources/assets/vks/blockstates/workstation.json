@@ -1,0 +1,70 @@
+{
+    "variants": {
+        "facing=north": [
+            {
+                "model": "vks:block/workstation",
+                "weight": 8,
+                "y": 0
+            }, {
+                "model": "vks:block/workstation_paper",
+                "weight": 2,
+                "y": 0
+            }, {
+                "model": "vks:block/workstation_coffee",
+                "weight": 2,
+                "y": 0
+            }
+        ],
+        "facing=east": [
+            {
+                "model": "vks:block/workstation",
+                "weight": 8,
+                "y": 90
+            },
+            {
+                "model": "vks:block/workstation_paper",
+                "weight": 2,
+                "y": 90
+            },
+            {
+                "model": "vks:block/workstation_coffee",
+                "weight": 2,
+                "y": 90
+            }
+        ],
+        "facing=south": [
+            {
+                "model": "vks:block/workstation",
+                "weight": 8,
+                "y": 180
+            },
+            {
+                "model": "vks:block/workstation_paper",
+                "weight": 2,
+                "y": 180
+            },
+            {
+                "model": "vks:block/workstation_coffee",
+                "weight": 2,
+                "y": 180
+            }
+        ],
+        "facing=west": [
+            {
+                "model": "vks:block/workstation",
+                "weight": 8,
+                "y": 270
+            },
+            {
+                "model": "vks:block/workstation_paper",
+                "weight": 2,
+                "y": 270
+            },
+            {
+                "model": "vks:block/workstation_coffee",
+                "weight": 2,
+                "y": 270
+            }
+        ]
+    }
+}

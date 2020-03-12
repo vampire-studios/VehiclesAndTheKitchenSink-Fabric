@@ -1,5 +1,7 @@
 package io.github.vampirestudios.vks.client.render;
 
+import io.github.vampirestudios.vks.entity.LandVehicleEntity;
+
 /**
  * Author: MrCrayfish
  */
@@ -33,14 +35,14 @@ public class Wheel
         this.render = render;
     }
 
-    /*public float getWheelRotation(LandVehicleEntity vehicle, float partialTicks)
+    public float getWheelRotation(LandVehicleEntity vehicle, float partialTicks)
     {
         if(position == Position.REAR)
         {
             return vehicle.prevRearWheelRotation + (vehicle.rearWheelRotation - vehicle.prevRearWheelRotation) * partialTicks;
         }
         return vehicle.prevFrontWheelRotation + (vehicle.frontWheelRotation - vehicle.prevFrontWheelRotation) * partialTicks;
-    }*/
+    }
 
     public float getOffsetX()
     {

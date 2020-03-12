@@ -1,0 +1,18 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:bumper_car",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 36
+        },
+        {
+            "item": "minecraft:redstone",
+            "count": 8
+        },
+        {
+            "item": "vks:panel",
+            "count": 8
+        }
+    ]
+}

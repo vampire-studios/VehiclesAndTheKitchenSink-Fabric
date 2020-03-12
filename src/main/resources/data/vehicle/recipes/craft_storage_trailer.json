@@ -1,0 +1,18 @@
+{
+    "type": "vks:crafting",
+    "vehicle": "vks:storage_trailer",
+    "materials": [
+        {
+            "item": "minecraft:iron_ingot",
+            "count": 36
+        },
+        {
+            "item": "vks:panel",
+            "count": 2
+        },
+        {
+            "item": "minecraft:chest",
+            "count": 1
+        }
+    ]
+}

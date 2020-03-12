@@ -1,0 +1,10 @@
+{
+    "type": "vks:fluid_extractor",
+    "ingredient": {
+        "item": "minecraft:ender_pearl"
+    },
+    "result": {
+        "fluid": "vks:ender_sap",
+        "amount": 600
+    }
+}
