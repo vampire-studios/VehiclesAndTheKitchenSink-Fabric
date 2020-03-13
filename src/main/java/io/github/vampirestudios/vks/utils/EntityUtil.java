@@ -1,6 +1,5 @@
 package io.github.vampirestudios.vks.utils;
 
-import io.github.vampirestudios.vampirelib.utils.registry.EntityRegistryBuilder;
 import io.github.vampirestudios.vks.block.BlockVehicleCrate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCategory;

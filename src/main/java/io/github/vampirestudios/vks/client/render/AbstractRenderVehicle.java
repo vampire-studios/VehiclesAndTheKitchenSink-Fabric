@@ -42,13 +42,11 @@ public abstract class AbstractRenderVehicle<T extends VehicleEntity>
         return true;
     }
 
-    protected void renderDamagedPart(VehicleEntity vehicle, ItemStack part, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int light)
-    {
+    protected void renderDamagedPart(VehicleEntity vehicle, ItemStack part, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int light) {
         this.renderDamagedPart(vehicle, RenderUtil.getModel(part), matrixStack, renderTypeBuffer, light);
     }
 
-    protected void renderDamagedPart(VehicleEntity vehicle, BakedModel model, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int light)
-    {
+    protected void renderDamagedPart(VehicleEntity vehicle, BakedModel model, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int light) {
         this.renderDamagedPart(vehicle, model, matrixStack, renderTypeBuffer, false, light);
         this.renderDamagedPart(vehicle, model, matrixStack, renderTypeBuffer, true, light);
     }

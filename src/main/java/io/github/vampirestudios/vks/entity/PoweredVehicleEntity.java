@@ -1,15 +1,18 @@
 package io.github.vampirestudios.vks.entity;
 
+import io.github.vampirestudios.vks.block.BlockVehicleCrate;
 import io.github.vampirestudios.vks.client.render.Wheel;
 import io.github.vampirestudios.vks.common.ItemLookup;
 import io.github.vampirestudios.vks.common.Seat;
 import io.github.vampirestudios.vks.common.entity.PartPosition;
+import io.github.vampirestudios.vks.entity.vehicles.BumperCarEntity;
 import io.github.vampirestudios.vks.init.ModItems;
 import io.github.vampirestudios.vks.init.ModSounds;
 import io.github.vampirestudios.vks.item.EngineItem;
 import io.github.vampirestudios.vks.item.WheelItem;
 import io.github.vampirestudios.vks.utils.CommonUtils;
 import io.github.vampirestudios.vks.utils.Constants;
+import io.github.vampirestudios.vks.utils.InventoryUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -32,9 +35,13 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -281,19 +288,14 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
                     CommonUtils.sendInfoMessage(player, "vehicle.status.not_lockable");
                     return false;
                 }
-            }
-            /*else if(stack.getItem() == ModItems.WRENCH && this.getVehicle() instanceof EntityJack)
-            {
-                if(player.getUuid().equals(owner))
-                {
+            } else if(stack.getItem() == ModItems.WRENCH && this.getVehicle() instanceof EntityJack) {
+                if(player.getUuid().equals(owner)) {
                     this.openEditInventory(player);
-                }
-                else
-                {
+                } else {
                     CommonUtils.sendInfoMessage(player, "vehicle.status.invalid_owner");
                 }
                 return true;
-            }*/
+            }
         }
         return super.interact(player, hand);
     }
@@ -339,7 +341,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
         this.updateVehicleMotion();
 
         this.setRotation(this.yaw, this.pitch);
-        double deltaRot = (double) (this.prevYaw - this.yaw);
+        double deltaRot = this.prevYaw - this.yaw;
         if (deltaRot < -180.0D)
         {
             this.prevYaw += 360.0F;
@@ -390,14 +392,12 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
 
 // Checks for collisions with any other vehicles
 
-        /*List<Entity> list = this.world.getEntities(this, this.getBoundingBox(), entity -> entity instanceof BumperCarEntity);
-        if (!list.isEmpty())
-        {
-            for(Entity entity : list)
-            {
+        List<Entity> list = this.world.getEntities(this, this.getBoundingBox(), entity -> entity instanceof BumperCarEntity);
+        if (!list.isEmpty()) {
+            for(Entity entity : list) {
                 this.getHardCollisionBox(entity);
             }
-        }*/
+        }
 
         if(this.requiresFuel() && controllingPassenger instanceof PlayerEntity && !((PlayerEntity) controllingPassenger).isCreative() && this.isEnginePowered())
         {
@@ -456,7 +456,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
                 {
                     if(this.wheelsOnGround || this.canAccelerateInAir())
                     {
-                        float maxSpeed = -(4.0F + engineTier.getAdditionalMaxSpeed() / 2) * wheelModifier * this.getPower();;
+                        float maxSpeed = -(4.0F + engineTier.getAdditionalMaxSpeed() / 2) * wheelModifier * this.getPower();
                         if(this.currentSpeed > maxSpeed)
                         {
                             this.currentSpeed -= this.getModifiedAccelerationSpeed() * engineTier.getAccelerationMultiplier();
@@ -1110,7 +1110,6 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
 //            serverPlayerEntity.openContainer = new EditVehicleContainer(serverPlayerEntity.currentWindowId, this.getVehicleInventory(), this, player, player.inventory);
 //            serverPlayerEntity.openContainer.addListener(serverPlayerEntity);
 //            PacketHandler.instance.send(PacketDistributor.PLAYER.with(() -> serverPlayerEntity), new MessageVehicleWindow(serverPlayerEntity.currentWindowId, this.getEntityId()));
-
         }
     }
 
@@ -1194,7 +1193,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
     public void onInventoryChanged(IInventory inventory)
     {
         this.updateSlots();
-    }
+    }*/
 
     @Override
     protected void onVehicleDestroyed(LivingEntity entity)
@@ -1207,7 +1206,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
             ItemStack engine = ItemLookup.getEngine(this);
             if(this.getEngineType() != EngineType.NONE && !engine.isEmpty())
             {
-                InventoryUtil.spawnItemStack(this.world, this.getPosX(), this.getPosY(), this.getPosZ(), engine);
+                InventoryUtil.spawnItemStack(this.world, this.getX(), this.getY(), this.getZ(), engine);
             }
 
             // Spawns the key and removes the associated vehicle uuid
@@ -1215,17 +1214,17 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
             if(!key.isEmpty())
             {
                 CommonUtils.getOrCreateStackTag(key).remove("VehicleId");
-                InventoryUtil.spawnItemStack(this.world, this.getPosX(), this.getPosY(), this.getPosZ(), key);
+                InventoryUtil.spawnItemStack(this.world, this.getX(), this.getY(), this.getZ(), key);
             }
 
             // Spawns wheels if the vehicle has any
             ItemStack wheel = ItemLookup.getWheel(this);
             if(this.canChangeWheels() && !wheel.isEmpty())
             {
-                InventoryUtil.spawnItemStack(this.world, this.getPosX(), this.getPosY(), this.getPosZ(), wheel);
+                InventoryUtil.spawnItemStack(this.world, this.getX(), this.getY(), this.getZ(), wheel);
             }
         }
-    }*/
+    }
 
     public boolean canChangeWheels()
     {
@@ -1352,8 +1351,8 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
         return false;
     }
 
-    /*@Override
-    public ItemStack getPickedResult(RayTraceResult target) {
+    @Override
+    public ItemStack getPickedResult(HitResult target) {
         EngineTier engineTier = null;
         if(this.hasEngine())
         {
@@ -1372,7 +1371,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
             return BlockVehicleCrate.create(entityId, this.getColor(), engineTier, wheelType, wheelColor);
         }
         return ItemStack.EMPTY;
-    }*/
+    }
 
     @Override
     public Text getDisplayName()
@@ -1387,8 +1386,7 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
         return new EditVehicleContainer(windowId, this.getVehicleInventory(), this, playerEntity, playerInventory);
     }*/
 
-    public enum TurnDirection
-    {
+    public enum TurnDirection {
         LEFT(1), FORWARD(0), RIGHT(-1);
 
         final int dir;

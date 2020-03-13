@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "vehicle:block/jack" }
+        "": { "model": "vks:block/jack" }
     }
 }

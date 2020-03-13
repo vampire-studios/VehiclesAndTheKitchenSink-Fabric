@@ -8,8 +8,7 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.util.Identifier;
 
-public enum SpecialModels implements ISpecialModel
-{
+public enum SpecialModels implements ISpecialModel {
     ATV_BODY("atv_body"),
     ATV_HANDLES("atv_handles"),
     DUNE_BUGGY_BODY("dune_buggy_body"),
@@ -83,8 +82,7 @@ public enum SpecialModels implements ISpecialModel
      *
      * @param modelName name of the model file
      */
-    SpecialModels(String modelName)
-    {
+    SpecialModels(String modelName) {
         this(new Identifier(VehiclesAndTheKitchenSink.MOD_ID, "vehicle/" + modelName), true);
     }
 
@@ -93,8 +91,7 @@ public enum SpecialModels implements ISpecialModel
      *
      * @param resource name of the model file
      */
-    SpecialModels(Identifier resource, boolean specialModel)
-    {
+    SpecialModels(Identifier resource, boolean specialModel) {
         this.modelLocation = resource;
         this.specialModel = specialModel;
     }
@@ -106,13 +103,11 @@ public enum SpecialModels implements ISpecialModel
      */
     @Override
     @Environment(EnvType.CLIENT)
-    public BakedModel getModel()
-    {
-        if(this.cachedModel == null)
-        {
-            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getModel(new ModelIdentifier(this.modelLocation, ""));
-            if(model == MinecraftClient.getInstance().getBakedModelManager().getMissingModel())
-            {
+    public BakedModel getModel() {
+        if(this.cachedModel == null) {
+//            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getModel(new ModelIdentifier(this.modelLocation, "inventory"));
+            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getMissingModel();
+            if(model == MinecraftClient.getInstance().getBakedModelManager().getMissingModel()) {
                 return model;
             }
             this.cachedModel = model;
@@ -120,16 +115,11 @@ public enum SpecialModels implements ISpecialModel
         return this.cachedModel;
     }
 
-    /*@SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public static void register(ModelRegistryEvent event)
-    {
-        for(SpecialModels model : values())
-        {
-            if(model.specialModel)
-            {
-                ModelLoader.addSpecialModel(model.modelLocation);
-            }
-        }
-    }*/
+    public Identifier getModelLocation() {
+        return modelLocation;
+    }
+
+    public boolean isSpecialModel() {
+        return specialModel;
+    }
 }

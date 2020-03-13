@@ -1,16 +1,16 @@
 package io.github.vampirestudios.vks.init;
 
-import io.github.vampirestudios.vampirelib.utils.registry.RegistryUtils;
 import io.github.vampirestudios.vks.VehiclesAndTheKitchenSink;
 import io.github.vampirestudios.vks.entity.EngineTier;
 import io.github.vampirestudios.vks.entity.EngineType;
 import io.github.vampirestudios.vks.entity.WheelType;
 import io.github.vampirestudios.vks.item.EngineItem;
-import io.github.vampirestudios.vks.item.WheelItem;
 import io.github.vampirestudios.vks.item.SprayCanItem;
+import io.github.vampirestudios.vks.item.WheelItem;
 import io.github.vampirestudios.vks.utils.Names;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
@@ -38,7 +38,7 @@ public class ModItems {
     public static final Item IRON_ELECTRIC_ENGINE = new EngineItem(Names.Item.IRON_ELECTRIC_ENGINE, EngineType.ELECTRIC_MOTOR, EngineTier.IRON);
     public static final Item GOLD_ELECTRIC_ENGINE = new EngineItem(Names.Item.GOLD_ELECTRIC_ENGINE, EngineType.ELECTRIC_MOTOR, EngineTier.GOLD);
     public static final Item DIAMOND_ELECTRIC_ENGINE = new EngineItem(Names.Item.DIAMOND_ELECTRIC_ENGINE, EngineType.ELECTRIC_MOTOR, EngineTier.DIAMOND);
-    public static final Item SPRAY_CAN = RegistryUtils.registerItem(new SprayCanItem(), new Identifier(VehiclesAndTheKitchenSink.MOD_ID, "spray_can"));
+    public static final Item SPRAY_CAN = Registry.register(Registry.ITEM, new Identifier(VehiclesAndTheKitchenSink.MOD_ID, "spray_can"), new SprayCanItem());
     public static final Item JERRY_CAN = null;
     public static final Item INDUSTRIAL_JERRY_CAN = null;
     public static final Item WRENCH = null;

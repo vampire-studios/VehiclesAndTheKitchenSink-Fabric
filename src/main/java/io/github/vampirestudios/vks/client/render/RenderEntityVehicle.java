@@ -1,5 +1,6 @@
 package io.github.vampirestudios.vks.client.render;
 
+import io.github.vampirestudios.vks.entity.EntityJack;
 import io.github.vampirestudios.vks.entity.VehicleEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
@@ -34,8 +35,8 @@ public class RenderEntityVehicle<T extends VehicleEntity/* & EntityRaytracer.IEn
         if(!entity.isAlive())
             return;
 
-        /*if(entity.getVehicle() instanceof EntityJack)
-            return;*/
+        if(entity.getVehicle() instanceof EntityJack)
+            return;
 
         matrixStack.push();
         wrapper.applyPreRotations(entity, matrixStack, partialTicks);

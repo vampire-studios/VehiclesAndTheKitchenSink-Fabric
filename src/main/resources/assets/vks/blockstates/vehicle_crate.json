@@ -1,10 +1,18 @@
 {
     "variants": {
         "facing": {
-            "north": {},
-            "east":  {},
-            "south": {},
-            "west":  {}
+            "north": {
+                "model": "vks:block/vehicle_crate"
+            },
+            "east":  {
+                "model": "vks:block/vehicle_crate"
+            },
+            "south": {
+                "model": "vks:block/vehicle_crate"
+            },
+            "west":  {
+                "model": "vks:block/vehicle_crate"
+            }
         }
     }
 }

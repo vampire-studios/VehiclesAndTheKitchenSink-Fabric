@@ -1,11 +1,12 @@
 package io.github.vampirestudios.vks.init;
 
-import io.github.vampirestudios.vampirelib.utils.registry.RegistryUtils;
+import io.github.vampirestudios.vks.block.entity.JackTileEntity;
 import io.github.vampirestudios.vks.block.entity.VehicleCrateTileEntity;
 import io.github.vampirestudios.vks.utils.Names;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 /**
  * Author: MrCrayfish
@@ -20,14 +21,13 @@ public class ModTileEntities
 //    public static final TileEntityType<FluidMixerTileEntity> FLUID_MIXER = null;
     public static final BlockEntityType<VehicleCrateTileEntity> VEHICLE_CRATE = buildType(Names.TileEntity.VEHICLE_CRATE, BlockEntityType.Builder.create(VehicleCrateTileEntity::new, ModBlocks.VEHICLE_CRATE));
 //    public static final TileEntityType<WorkstationTileEntity> WORKSTATION = null;
-//    public static final TileEntityType<JackTileEntity> JACK = null;
+    public static final BlockEntityType<JackTileEntity> JACK = buildType(Names.TileEntity.JACK, BlockEntityType.Builder.create(JackTileEntity::new, ModBlocks.JACK));
 //    public static final TileEntityType<BoostTileEntity> BOOST = null;
 //    public static final TileEntityType<GasPumpTileEntity> GAS_PUMP = null;
 //    public static final TileEntityType<GasPumpTankTileEntity> GAS_PUMP_TANK = null;
 
-    private static <T extends BlockEntity> BlockEntityType<T> buildType(String id, BlockEntityType.Builder<T> builder)
-    {
-        return RegistryUtils.registerBlockEntity(builder, new Identifier(id));
+    private static <T extends BlockEntity> BlockEntityType<T> buildType(String id, BlockEntityType.Builder<T> builder) {
+        return Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(id), builder.build(null));
     }
 
     /*@SubscribeEvent

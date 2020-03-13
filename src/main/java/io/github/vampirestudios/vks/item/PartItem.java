@@ -1,8 +1,8 @@
 package io.github.vampirestudios.vks.item;
 
-import io.github.vampirestudios.vampirelib.utils.registry.RegistryUtils;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 /**
  * Author: MrCrayfish
@@ -14,8 +14,7 @@ public class PartItem extends Item
     public PartItem(String id, Item.Settings properties)
     {
         super(properties);
-//        this.setRegistryName(id);
-        RegistryUtils.registerItem(this, new Identifier(id));
+        Registry.register(Registry.ITEM, new Identifier(id), this);
     }
 
     public PartItem setColored()

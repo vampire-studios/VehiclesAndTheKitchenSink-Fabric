@@ -70,7 +70,7 @@ public class VehicleProperties
         properties.setRearAxelVec(0, -10.5);
         properties.addSeat(new Seat(new Vec3d(0, 5, 0), true));
         properties.addSeat(new Seat(new Vec3d(0, 4, -8)));
-//        VehicleProperties.setProperties(ModEntities.ATV, properties);
+        VehicleProperties.setProperties(ModEntities.ATV, properties);
 
         /* Bumper Car */
         properties = new VehicleProperties();
@@ -88,7 +88,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 8.5);
         properties.setRearAxelVec(0, -8.5);
         properties.addSeat(new Seat(new Vec3d(0, 1, -1), true));
-//        VehicleProperties.setProperties(ModEntities.BUMPER_CAR, properties);
+        VehicleProperties.setProperties(ModEntities.BUMPER_CAR, properties);
 
         /* Dune Buggy */
         properties = new VehicleProperties();
@@ -105,7 +105,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 5.3);
         properties.setRearAxelVec(0, -5.7);
         properties.addSeat(new Seat(new Vec3d(0, 2, 0), true));
-//        VehicleProperties.setProperties(ModEntities.DUNE_BUGGY, properties);
+        VehicleProperties.setProperties(ModEntities.DUNE_BUGGY, properties);
 
         /* Go Kart */
         properties = new VehicleProperties();
@@ -144,7 +144,7 @@ public class VehicleProperties
         properties.addSeat(new Seat(new Vec3d(-5.5, 5, -6)));
         properties.addSeat(new Seat(new Vec3d(5.5, 5, -15), 180F));
         properties.addSeat(new Seat(new Vec3d(-5.5, 5, -15), 180F));
-//        VehicleProperties.setProperties(ModEntities.GOLF_CART, properties);
+        VehicleProperties.setProperties(ModEntities.GOLF_CART, properties);
 
         /* Jet Ski */
         properties = new VehicleProperties();
@@ -176,7 +176,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 13.5);
         properties.setRearAxelVec(0, -10.7);
         properties.addSeat(new Seat(new Vec3d(0, 7, 0), true));
-//        VehicleProperties.setProperties(ModEntities.LAWN_MOWER, properties);
+        VehicleProperties.setProperties(ModEntities.LAWN_MOWER, properties);
 
         /* Mini Bike */
         properties = new VehicleProperties();
@@ -215,7 +215,7 @@ public class VehicleProperties
         properties.addSeat(new Seat(new Vec3d(4.5, 2, -3)));
         properties.addSeat(new Seat(new Vec3d(-4.5, 2, -3)));
         properties.addSeat(new Seat(new Vec3d(4.5, 2, -15)));
-//        VehicleProperties.setProperties(ModEntities.MINI_BUS, properties);
+        VehicleProperties.setProperties(ModEntities.MINI_BUS, properties);
 
         /* Moped */
         properties = new VehicleProperties();
@@ -252,7 +252,7 @@ public class VehicleProperties
         properties.addSeat(new Seat(new Vec3d(-5, 4, -3)));
         properties.addSeat(new Seat(new Vec3d(5, 11.5, -14.5)));
         properties.addSeat(new Seat(new Vec3d(-5, 3.5, -18.9)));
-//        VehicleProperties.setProperties(ModEntities.OFF_ROADER, properties);
+        VehicleProperties.setProperties(ModEntities.OFF_ROADER, properties);
 
         /* Shopping Cart */
         properties = new VehicleProperties();
@@ -287,7 +287,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 12);
         properties.setRearAxelVec(0, -12);
         properties.addSeat(new Seat(new Vec3d(0, 0.5, 0), true));
-//        VehicleProperties.setProperties(ModEntities.SMART_CAR, properties);
+        VehicleProperties.setProperties(ModEntities.SMART_CAR, properties);
 
         /* Speed Boat */
         properties = new VehicleProperties();
@@ -327,7 +327,7 @@ public class VehicleProperties
         properties.setFrontAxelVec(0, 14.0);
         properties.setRearAxelVec(0, -14.5);
         properties.addSeat(new Seat(new Vec3d(0, 9, -10), true));
-//        VehicleProperties.setProperties(ModEntities.TRACTOR, properties);
+        VehicleProperties.setProperties(ModEntities.TRACTOR, properties);
 
         /* Fertilizer Trailer */
         properties = new VehicleProperties();

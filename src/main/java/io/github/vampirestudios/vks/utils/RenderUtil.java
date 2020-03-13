@@ -82,8 +82,7 @@ public class RenderUtil
         GL11.glScissor(x * scale, mc.getWindow().getHeight() - y * scale - height * scale, Math.max(0, width * scale), Math.max(0, height * scale));
     }
 
-    public static BakedModel getModel(ItemStack stack)
-    {
+    public static BakedModel getModel(ItemStack stack) {
         return MinecraftClient.getInstance().getItemRenderer().getModels().getModel(stack);
     }
 
@@ -113,8 +112,7 @@ public class RenderUtil
         matrixStack.pop();
     }
 
-    public static void renderModel(ItemStack stack, ModelTransformation.Mode transformType, boolean leftHanded, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int lightTexture, int overlayTexture, BakedModel model)
-    {
+    public static void renderModel(ItemStack stack, ModelTransformation.Mode transformType, boolean leftHanded, MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int lightTexture, int overlayTexture, BakedModel model) {
         if(!stack.isEmpty())
         {
             matrixStack.push();
@@ -153,7 +151,7 @@ public class RenderUtil
     }
 
     private static void renderQuads(MatrixStack matrixStack, VertexConsumer vertexBuilder, List<BakedQuad> quads, ItemStack stack, int color, int lightTexture, int overlayTexture) {
-        /*MatrixStack.Entry entry = matrixStack.peek();
+        MatrixStack.Entry entry = matrixStack.peek();
         for(BakedQuad quad : quads) {
             int tintColor = 0xFFFFFF;
             if(quad.hasColor()) {
@@ -163,7 +161,7 @@ public class RenderUtil
             float green = (float) (tintColor >> 8 & 255) / 255.0F;
             float blue = (float) (tintColor & 255) / 255.0F;
             vertexBuilder.quad(entry, quad, red, green, blue, lightTexture, overlayTexture);
-        }*/
+        }
     }
 
     /**
@@ -179,7 +177,7 @@ public class RenderUtil
         if(!stack.isEmpty()) {
             return RenderUtil.getModel(stack);
         }
-        return null;
+        return MinecraftClient.getInstance().getBakedModelManager().getMissingModel();
     }
 
     /**
@@ -195,6 +193,6 @@ public class RenderUtil
         if(!stack.isEmpty()) {
             return RenderUtil.getModel(stack);
         }
-        return null;
+        return MinecraftClient.getInstance().getBakedModelManager().getMissingModel();
     }
 }

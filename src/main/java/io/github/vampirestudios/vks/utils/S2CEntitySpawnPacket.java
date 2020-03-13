@@ -23,7 +23,6 @@ public class S2CEntitySpawnPacket extends BasePacket {
     public static final Identifier ID = id("spawn_entity", NetworkSide.CLIENTBOUND);
 
     public static Packet<?> createPacket(Entity entity) {
-        System.out.println(Registry.ENTITY_TYPE.getId(entity.getType()).toString());
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
         buf.writeString(Registry.ENTITY_TYPE.getId(entity.getType()).toString());
         buf.writeUuid(entity.getUuid());
@@ -40,7 +39,6 @@ public class S2CEntitySpawnPacket extends BasePacket {
 
     @Environment(EnvType.CLIENT)
     public static void onPacket(PacketContext context, PacketByteBuf byteBuf) {
-        System.out.println(byteBuf.refCnt());
         EntityType<?> type = Registry.ENTITY_TYPE.get(new Identifier(byteBuf.readString()));
         UUID entityUUID = byteBuf.readUuid();
         int entityID = byteBuf.readVarInt();

@@ -51,7 +51,7 @@ public class RenderVehicleWrapper<T extends VehicleEntity/* & EntityRaytracer.IE
             matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(180F));
             Vec3d towBarOffset = properties.getTowBarPosition();
             matrixStack.translate(towBarOffset.x * 0.0625, towBarOffset.y * 0.0625 + 0.5, -towBarOffset.z * 0.0625);
-//            RenderUtil.renderColoredModel(SpecialModels.TOW_BAR.getModel(), ItemCameraTransforms.TransformType.NONE, false, matrixStack, renderTypeBuffer, -1, light, OverlayTexture.DEFAULT_LIGHT);
+            RenderUtil.renderColoredModel(SpecialModels.TOW_BAR.getModel(), ModelTransformation.Mode.NONE, false, matrixStack, renderTypeBuffer, -1, light, OverlayTexture.DEFAULT_UV);
             matrixStack.pop();
         }
 
