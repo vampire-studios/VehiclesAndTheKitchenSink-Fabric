@@ -5,11 +5,10 @@ import net.minecraft.block.Block;
 /**
  * Author: MrCrayfish
  */
-public class BlockObject extends Block
-{
-    public BlockObject(String id, Block.Settings properties)
-    {
+public class BlockObject extends Block {
+
+    public BlockObject(Block.Settings properties) {
         super(properties);
-//        this.setRegistryName(id);
     }
+
 }

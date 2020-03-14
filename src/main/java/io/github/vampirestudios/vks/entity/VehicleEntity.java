@@ -5,7 +5,9 @@ import io.github.vampirestudios.vks.block.BlockVehicleCrate;
 import io.github.vampirestudios.vks.common.Seat;
 import io.github.vampirestudios.vks.common.SeatTracker;
 import io.github.vampirestudios.vks.common.entity.PartPosition;
+import io.github.vampirestudios.vks.init.ModItems;
 import io.github.vampirestudios.vks.init.ModSounds;
+import io.github.vampirestudios.vks.item.SprayCanItem;
 import io.github.vampirestudios.vks.utils.Constants;
 import io.github.vampirestudios.vks.utils.S2CEntitySpawnPacket;
 import net.fabricmc.api.EnvType;
@@ -23,8 +25,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
+import net.minecraft.network.packet.s2c.play.EntityAnimationS2CPacket;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.HitResult;
@@ -105,7 +111,7 @@ public abstract class VehicleEntity extends Entity implements IForgeEntity {
                     }
                 }
                 return true;
-            }
+            }*/
 
             ItemStack heldItem = player.getStackInHand(hand);
             if(heldItem.getItem() instanceof SprayCanItem) {
@@ -124,8 +130,7 @@ public abstract class VehicleEntity extends Entity implements IForgeEntity {
                     }
                 }
                 return true;
-            }
-            else if(heldItem.getItem() == ModItems.HAMMER && this.getVehicle() instanceof EntityJack) {
+            } else if(heldItem.getItem() == ModItems.HAMMER && this.getVehicle() instanceof EntityJack) {
                 if(this.getHealth() < this.getMaxHealth()) {
                     heldItem.damage(1, player, playerEntity -> player.sendToolBreakStatus(hand));
                     this.setHealth(this.getHealth() + 5F);
@@ -138,8 +143,7 @@ public abstract class VehicleEntity extends Entity implements IForgeEntity {
                         if(world instanceof ServerWorld) {
                             //TODO send as single packet instead of multiple
                             int count = (int) (50 * (this.getWidth() * this.getHeight()));
-                            for(int i = 0; i < count; i++)
-                            {
+                            for(int i = 0; i < count; i++) {
                                 double width = this.getWidth() * 2;
                                 double height = this.getHeight() * 1.5;
 
@@ -158,8 +162,7 @@ public abstract class VehicleEntity extends Entity implements IForgeEntity {
                     }
                 }
                 return true;
-            }
-            else */if(this.canAddPassenger(player)) {
+            } else if(this.canAddPassenger(player)) {
                 int seatIndex = this.seatTracker.getClosestAvailableSeatToPlayer(player);
                 if(seatIndex != -1) {
                     if(player.startRiding(this)) {

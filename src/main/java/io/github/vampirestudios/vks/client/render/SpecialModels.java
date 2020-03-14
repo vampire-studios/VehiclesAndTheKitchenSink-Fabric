@@ -105,8 +105,8 @@ public enum SpecialModels implements ISpecialModel {
     @Environment(EnvType.CLIENT)
     public BakedModel getModel() {
         if(this.cachedModel == null) {
-//            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getModel(new ModelIdentifier(this.modelLocation, "inventory"));
-            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getMissingModel();
+            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getModel(new ModelIdentifier(this.modelLocation, "inventory"));
+//            BakedModel model = MinecraftClient.getInstance().getBakedModelManager().getMissingModel();
             if(model == MinecraftClient.getInstance().getBakedModelManager().getMissingModel()) {
                 return model;
             }

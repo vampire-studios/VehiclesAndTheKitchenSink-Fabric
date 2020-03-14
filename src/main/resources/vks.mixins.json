@@ -8,6 +8,6 @@
     "MinecraftClientMixin",
     "EntityMixin",
     "ModelLoaderMixin",
-    "ModelLoaderAddModelAccessor"
+    "AccessorBlockTagsRegister"
   ]
 }

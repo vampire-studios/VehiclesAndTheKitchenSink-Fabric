@@ -17,15 +17,13 @@ import java.util.Map;
 /**
  * Author: MrCrayfish
  */
-public class ItemLookup
-{
+public class ItemLookup {
     private static final Map<WheelType, Item> WHEEL_LOOKUP = new HashMap<>();
     private static final Map<Pair<EngineType, EngineTier>, Item> ENGINE_LOOKUP = new HashMap<>();
     
     private static boolean init;
     
-    public static void init()
-    {
+    public static void init() {
         if(init) return;
         WHEEL_LOOKUP.put(WheelType.STANDARD, ModItems.STANDARD_WHEEL);
         WHEEL_LOOKUP.put(WheelType.SPORTS, ModItems.SPORTS_WHEEL);
@@ -52,17 +50,13 @@ public class ItemLookup
         init = true;
     }
 
-    public static ItemStack getWheel(PoweredVehicleEntity entity)
-    {
-        if(entity.hasWheels())
-        {
+    public static ItemStack getWheel(PoweredVehicleEntity entity) {
+        if(entity.hasWheels()) {
             ItemStack wheel = new ItemStack(WHEEL_LOOKUP.getOrDefault(entity.getWheelType(), Items.AIR));
-            if(!wheel.isEmpty() && wheel.getItem() instanceof WheelItem)
-            {
+            if(!wheel.isEmpty() && wheel.getItem() instanceof WheelItem) {
                 WheelItem wheelItem = (WheelItem) wheel.getItem();
                 int wheelColor = entity.getWheelColor();
-                if(wheelColor != -1)
-                {
+                if(wheelColor != -1) {
                     wheelItem.setColor(wheel, wheelColor);
                 }
                 return wheel;

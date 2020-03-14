@@ -4,9 +4,7 @@ import io.github.vampirestudios.vks.VehiclesAndTheKitchenSink;
 import io.github.vampirestudios.vks.entity.EngineTier;
 import io.github.vampirestudios.vks.entity.EngineType;
 import io.github.vampirestudios.vks.entity.WheelType;
-import io.github.vampirestudios.vks.item.EngineItem;
-import io.github.vampirestudios.vks.item.SprayCanItem;
-import io.github.vampirestudios.vks.item.WheelItem;
+import io.github.vampirestudios.vks.item.*;
 import io.github.vampirestudios.vks.utils.Names;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -14,7 +12,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item PANEL = null;
+    public static final Item PANEL = new PanelItem();
     public static final Item STANDARD_WHEEL = new WheelItem(Names.Item.STANDARD_WHEEL, WheelType.STANDARD);
     public static final Item SPORTS_WHEEL = new WheelItem(Names.Item.SPORTS_WHEEL, WheelType.SPORTS);
     public static final Item RACING_WHEEL = new WheelItem(Names.Item.RACING_WHEEL, WheelType.RACING);
@@ -41,9 +39,9 @@ public class ModItems {
     public static final Item SPRAY_CAN = Registry.register(Registry.ITEM, new Identifier(VehiclesAndTheKitchenSink.MOD_ID, "spray_can"), new SprayCanItem());
     public static final Item JERRY_CAN = null;
     public static final Item INDUSTRIAL_JERRY_CAN = null;
-    public static final Item WRENCH = null;
-    public static final Item HAMMER = null;
-    public static final Item KEY = null;
+    public static final Item WRENCH = new WrenchItem();
+    public static final Item HAMMER = new HammerItem();
+    public static final Item KEY = new KeyItem();
     public static final Item FUELIUM_BUCKET = null;
     public static final Item ENDER_SAP_BUCKET = null;
     public static final Item BLAZE_JUICE_BUCKET = null;

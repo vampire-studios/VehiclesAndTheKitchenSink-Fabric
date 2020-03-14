@@ -1,6 +1,7 @@
 package io.github.vampirestudios.vks;
 
 import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.profiler.Profiler;
@@ -9,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ModelLoader extends net.minecraft.client.render.model.ModelLoader implements IModelLoaderAdditions {
-    private static Set<Identifier> specialModels = new HashSet<>();
+    private static Set<ModelIdentifier> specialModels = new HashSet<>();
 
     public ModelLoader(ResourceManager resourceManager, BlockColors blockColors, Profiler profiler, int i) {
         super(resourceManager, blockColors, profiler, i);
@@ -22,12 +23,12 @@ public class ModelLoader extends net.minecraft.client.render.model.ModelLoader i
      * @param rl The model, either {@link net.minecraft.client.util.ModelIdentifier} to point to a blockstate variant,
      *           or plain {@link Identifier} to point directly to a json in the models folder.
      */
-    public static void addSpecialModel(Identifier rl) {
+    public static void addSpecialModel(ModelIdentifier rl) {
         specialModels.add(rl);
     }
 
     @Override
-    public Set<Identifier> getSpecialModels() {
+    public Set<ModelIdentifier> getSpecialModels() {
         return specialModels;
     }
 

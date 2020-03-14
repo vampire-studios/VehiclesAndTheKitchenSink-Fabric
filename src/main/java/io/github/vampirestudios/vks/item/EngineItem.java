@@ -50,14 +50,11 @@ public class EngineItem extends PartItem
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         String tierName = I18n.translate("vehicle.engine_tier." + this.engineTier.getTierName() + ".name");
         tooltip.add(new LiteralText(this.engineTier.getTierColor() + Formatting.BOLD.toString() + tierName));
-        if(Screen.hasShiftDown())
-        {
+        if(Screen.hasShiftDown()) {
             tooltip.add(new LiteralText(Formatting.YELLOW + I18n.translate("vehicle.engine_info.acceleration") + ": " + Formatting.RESET + this.engineTier.getAccelerationMultiplier() + "x"));
             tooltip.add(new LiteralText(Formatting.YELLOW + I18n.translate("vehicle.engine_info.additional_max_speed") + ": " + Formatting.RESET + (this.engineTier.getAdditionalMaxSpeed() * 3.6) + "kph"));
             tooltip.add(new LiteralText(Formatting.YELLOW + I18n.translate("vehicle.engine_info.fuel_consumption") + ": " + Formatting.RESET + this.engineTier.getFuelConsumption() + "pt"));
-        }
-        else
-        {
+        } else {
             tooltip.add(new LiteralText(Formatting.YELLOW + I18n.translate("vehicle.info_help")));
         }
     }

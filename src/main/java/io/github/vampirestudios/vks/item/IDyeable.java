@@ -25,20 +25,17 @@ public interface IDyeable {
         compound.putInt("Color", color);
     }
 
-    public static ItemStack dyeStack(ItemStack stack, List<DyeItem> dyes)
-    {
+    public static ItemStack dyeStack(ItemStack stack, List<DyeItem> dyes) {
         ItemStack resultStack = ItemStack.EMPTY;
         int[] combinedColors = new int[3];
         int maxColor = 0;
         int colorCount = 0;
         IDyeable dyeable = null;
-        if(stack.getItem() instanceof IDyeable)
-        {
+        if(stack.getItem() instanceof IDyeable) {
             dyeable = (IDyeable) stack.getItem();
             resultStack = stack.copy();
             resultStack.setCount(1);
-            if(dyeable.hasColor(stack))
-            {
+            if(dyeable.hasColor(stack)) {
                 int color = dyeable.getColor(resultStack);
                 float red = (float) (color >> 16 & 255) / 255.0F;
                 float green = (float) (color >> 8 & 255) / 255.0F;
@@ -50,8 +47,7 @@ public interface IDyeable {
                 colorCount++;
             }
 
-            for(DyeItem dyeitem : dyes)
-            {
+            for(DyeItem dyeitem : dyes) {
                 float[] colorComponents = dyeitem.getColor().getColorComponents();
                 int red = (int) (colorComponents[0] * 255.0F);
                 int green = (int) (colorComponents[1] * 255.0F);
@@ -64,12 +60,9 @@ public interface IDyeable {
             }
         }
 
-        if(dyeable == null)
-        {
+        if(dyeable == null) {
             return ItemStack.EMPTY;
-        }
-        else
-        {
+        } else {
             int red = combinedColors[0] / colorCount;
             int green = combinedColors[1] / colorCount;
             int blue = combinedColors[2] / colorCount;

@@ -695,16 +695,12 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
     }
 
     @Override
-    public void updatePassengerPosition(Entity passenger)
-    {
-        if(this.hasPassenger(passenger))
-        {
+    public void updatePassengerPosition(Entity passenger) {
+        if(this.hasPassenger(passenger)) {
             int seatIndex = this.getSeatTracker().getSeatIndex(passenger.getUuid());
-            if(seatIndex != -1)
-            {
+            if(seatIndex != -1) {
                 VehicleProperties properties = this.getProperties();
-                if(seatIndex >= 0 && seatIndex < properties.getSeats().size())
-                {
+                if(seatIndex >= 0 && seatIndex < properties.getSeats().size()) {
                     Seat seat = properties.getSeats().get(seatIndex);
                     Vec3d seatVec = seat.getPosition().add(0, properties.getAxleOffset() + properties.getWheelOffset(), 0).multiply(properties.getBodyPosition().getScale()).multiply(-1, 1, 1).multiply(0.0625).rotateY(-(this.getHeadYaw() + 180) * 0.017453292F);
                     //Vec3d seatVec = Vec3d.ZERO;
@@ -715,6 +711,9 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
                         passenger.setHeadYaw(passenger.yaw);
                     }
                     this.applyYawToEntity(passenger);*/
+                    passenger.yaw -= this.deltaYaw;
+                    passenger.setHeadYaw(passenger.yaw);
+                    this.applyYawToEntity(passenger);
                 }
             }
         }
@@ -1058,10 +1057,8 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
     @Override
     public void onTrackedDataSet(TrackedData<?> key) {
         super.onTrackedDataSet(key);
-        if(world.isClient)
-        {
-            if(COLOR.equals(key))
-            {
+        if(world.isClient) {
+            if(COLOR.equals(key)) {
                 Color color = new Color(this.dataTracker.get(COLOR)); //TODO move this code to renderer to make fuel port darker or lighter
                 int colorInt = (Math.sqrt(color.getRed() * color.getRed() * 0.241
                         + color.getGreen() * color.getGreen() * 0.691
