@@ -20,6 +20,8 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.Registry;
 
+import java.util.Objects;
+
 public class VehiclesAndTheKitchenSinkClient implements ClientModInitializer {
 
     @Override
@@ -37,6 +39,7 @@ public class VehiclesAndTheKitchenSinkClient implements ClientModInitializer {
         registerVehicleRender(ModEntities.GOLF_CART, new RenderLandVehicleWrapper<>(new RenderGolfCart()));
         registerVehicleRender(ModEntities.LAWN_MOWER, new RenderLandVehicleWrapper<>(new RenderLawnMower()));
         registerVehicleRender(ModEntities.MINI_BUS, new RenderLandVehicleWrapper<>(new RenderMiniBus()));
+        registerVehicleRender(ModEntities.SAND_BUS, new RenderLandVehicleWrapper<>(new RenderSandBus()));
         registerVehicleRender(ModEntities.OFF_ROADER, new RenderLandVehicleWrapper<>(new RenderOffRoader()));
         registerVehicleRender(ModEntities.SMART_CAR, new RenderLandVehicleWrapper<>(new RenderSmartCar()));
         registerVehicleRender(ModEntities.TRACTOR, new RenderLandVehicleWrapper<>(new RenderTractor()));
@@ -46,7 +49,7 @@ public class VehiclesAndTheKitchenSinkClient implements ClientModInitializer {
         ClientSidePacketRegistry.INSTANCE.register(S2CEntitySpawnPacket.ID, S2CEntitySpawnPacket::onPacket);
 
         ItemColorProvider color = (stack, index) -> {
-            if(index == 0 && stack.hasTag() && stack.getTag().contains("Color", Constants.NBT.TAG_INT))
+            if(index == 0 && stack.hasTag() && Objects.requireNonNull(stack.getTag()).contains("Color", Constants.NBT.TAG_INT))
             {
                 return stack.getTag().getInt("Color");
             }

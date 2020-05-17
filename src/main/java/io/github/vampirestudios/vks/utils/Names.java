@@ -55,6 +55,7 @@ public class Names
         public static final String STONE_SMALL_ENGINE = PREFIX + "stone_small_engine";
         public static final String WOOD_SMALL_ENGINE = PREFIX + "wood_small_engine";
         public static final String PLASTIC_WHEEL = PREFIX + "plastic_wheel";
+        public static final String STANDARD_SAND_BUS_WHEEL = PREFIX + "standard_sand_bus_wheel";
         public static final String ALL_TERRAIN_WHEEL = PREFIX + "all_terrain_wheel";
         public static final String SNOW_WHEEL = PREFIX + "snow_wheel";
         public static final String OFF_ROAD_WHEEL = PREFIX + "off_road_wheel";
@@ -82,6 +83,7 @@ public class Names
         public static final String STORAGE_TRAILER = PREFIX + "storage_trailer";
 
         public static final String MINI_BUS = PREFIX + "mini_bus";
+        public static final String SAND_BUS = PREFIX + "sand_bus";
         public static final String TRACTOR = PREFIX + "tractor";
         public static final String OFF_ROADER = PREFIX + "off_roader";
         public static final String GOLF_CART = PREFIX + "golf_cart";

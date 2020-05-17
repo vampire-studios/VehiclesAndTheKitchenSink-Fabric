@@ -10,7 +10,8 @@ public enum WheelType {
     OFF_ROAD("off_road", 0.75F, 1.0F, 0.85F),
     SNOW("snow", 0.75F, 0.75F, 0.95F),
     ALL_TERRAIN("all_terrain", 0.85F, 0.85F, 0.85F),
-    PLASTIC("plastic", 0.5F, 0.5F, 0.5F);
+    PLASTIC("plastic", 0.5F, 0.5F, 0.5F),
+    STANDARD_SAND_BUS("standard_sand_bus", 0.5F, 0.8F, 0.2F);
 
     String id;
     float roadMultiplier;
@@ -63,7 +64,10 @@ public enum WheelType {
                 return ALL_TERRAIN;
             case "plastic":
                 return PLASTIC;
+            case "standard_sand_bus":
+                return STANDARD_SAND_BUS;
         }
         return STANDARD;
     }
+
 }

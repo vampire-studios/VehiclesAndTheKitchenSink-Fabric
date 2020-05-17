@@ -20,6 +20,7 @@ public class ModItems {
     public static final Item SNOW_WHEEL = new WheelItem(Names.Item.SNOW_WHEEL, WheelType.SNOW);
     public static final Item ALL_TERRAIN_WHEEL = new WheelItem(Names.Item.ALL_TERRAIN_WHEEL, WheelType.ALL_TERRAIN);
     public static final Item PLASTIC_WHEEL = new WheelItem(Names.Item.PLASTIC_WHEEL, WheelType.PLASTIC);
+    public static final Item STANDARD_SAND_BUS_WHEEL = new WheelItem(Names.Item.STANDARD_SAND_BUS_WHEEL, WheelType.STANDARD_SAND_BUS);
 
     public static final Item WOOD_SMALL_ENGINE = new EngineItem(Names.Item.WOOD_SMALL_ENGINE, EngineType.SMALL_MOTOR, EngineTier.WOOD);
     public static final Item STONE_SMALL_ENGINE = new EngineItem(Names.Item.STONE_SMALL_ENGINE, EngineType.SMALL_MOTOR, EngineTier.STONE);

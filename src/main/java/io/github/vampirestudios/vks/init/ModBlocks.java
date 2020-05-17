@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 import java.util.function.Function;
 
 /**
@@ -43,7 +44,7 @@ public class ModBlocks {
     }
 
     private static Block register(Identifier name, Block block, @Nullable Function<Block, BlockItem> supplier) {
-        Registry.register(Registry.ITEM, name, supplier.apply(block));
+        Registry.register(Registry.ITEM, name, Objects.requireNonNull(supplier).apply(block));
         return Registry.register(Registry.BLOCK, name, block);
     }
 

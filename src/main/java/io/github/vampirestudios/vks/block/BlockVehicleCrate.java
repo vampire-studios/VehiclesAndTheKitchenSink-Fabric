@@ -8,7 +8,6 @@ import io.github.vampirestudios.vks.init.ModBlocks;
 import io.github.vampirestudios.vks.init.ModItems;
 import io.github.vampirestudios.vks.utils.Bounds;
 import io.github.vampirestudios.vks.utils.Constants;
-import io.github.vampirestudios.vks.utils.Names;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
@@ -56,7 +55,7 @@ public class BlockVehicleCrate extends BlockRotatedObject implements BlockEntity
     private static final Box PANEL = new Bounds(0, 0, 0, 16, 2, 16).toAABB(); //TODO add collisions back
 
     public BlockVehicleCrate() {
-        super(Names.Block.VEHICLE_CRATE, Block.Settings.of(Material.METAL, DyeColor.LIGHT_GRAY).strength(1.5F, 5.0F).nonOpaque());
+        super(Block.Settings.of(Material.METAL, DyeColor.LIGHT_GRAY).strength(1.5F, 5.0F).nonOpaque());
     }
 
     @Override

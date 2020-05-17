@@ -18,9 +18,8 @@ import javax.annotation.Nullable;
 public class BlockJack extends BlockObject implements BlockEntityProvider {
     private static final VoxelShape SHAPE = Block.createCuboidShape(1, 0, 1, 15, 9, 15);
 
-    public BlockJack()
-    {
-        super(Names.Block.JACK, Block.Settings.of(Material.PISTON));
+    public BlockJack() {
+        super(Block.Settings.of(Material.PISTON));
     }
 
     @Override

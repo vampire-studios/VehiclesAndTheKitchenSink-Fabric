@@ -36,6 +36,7 @@ public enum SpecialModels implements ISpecialModel {
     OFF_ROADER_BODY("off_roader_body"),
     TRACTOR("tractor_body"),
     MINI_BUS_BODY("mini_bus_body"),
+    SAND_BUS_BODY("sand_bus_body"),
     VEHICLE_TRAILER("trailer_body"),
     STORAGE_TRAILER("trailer_chest_body"),
     SEEDER_TRAILER("trailer_seeder_body"),

@@ -32,6 +32,7 @@ public class ItemLookup {
         WHEEL_LOOKUP.put(WheelType.SNOW, ModItems.SNOW_WHEEL);
         WHEEL_LOOKUP.put(WheelType.ALL_TERRAIN, ModItems.ALL_TERRAIN_WHEEL);
         WHEEL_LOOKUP.put(WheelType.PLASTIC, ModItems.PLASTIC_WHEEL);
+        WHEEL_LOOKUP.put(WheelType.STANDARD_SAND_BUS, ModItems.STANDARD_SAND_BUS_WHEEL);
         ENGINE_LOOKUP.put(Pair.of(EngineType.SMALL_MOTOR, EngineTier.WOOD), ModItems.WOOD_SMALL_ENGINE);
         ENGINE_LOOKUP.put(Pair.of(EngineType.SMALL_MOTOR, EngineTier.STONE), ModItems.STONE_SMALL_ENGINE);
         ENGINE_LOOKUP.put(Pair.of(EngineType.SMALL_MOTOR, EngineTier.IRON), ModItems.IRON_SMALL_ENGINE);
