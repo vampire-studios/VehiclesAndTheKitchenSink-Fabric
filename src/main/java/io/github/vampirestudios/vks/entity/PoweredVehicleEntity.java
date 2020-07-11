@@ -20,7 +20,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassBlock;
 import net.minecraft.block.Material;
 import net.minecraft.entity.*;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -150,7 +149,6 @@ public abstract class PoweredVehicleEntity extends VehicleEntity/* implements In
         if(wheels != null && wheels.size() > 0) {
             this.wheelPositions = new double[wheels.size() * 3];
         }
-        EntityAttributeModifier
     }
 
     public abstract SoundEvent getMovingSound();

@@ -623,6 +623,7 @@ public abstract class VehicleEntity extends Entity implements IForgeEntity {
     }*/
 
     public void updatePassengerPosition(Entity passenger) {
+        super.updatePassengerPosition(passenger);
         if(this.isConnectedThroughVehicle(passenger)) {
             int seatIndex = this.getSeatTracker().getSeatIndex(passenger.getUuid());
             if(seatIndex != -1) {
